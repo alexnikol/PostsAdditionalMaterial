@@ -1,0 +1,22 @@
+[
+    {
+        "ID": "1F6DDACC-163B-44E5-8AF8-6250A8715475",
+        "title": "Book 1",
+        "author": "Author 1"
+    },
+    {
+        "ID": "CDA9A300-29AF-4659-B830-C3A50267A78A",
+        "title": "Book 2",
+        "author": "Author 2"
+    },
+    {
+        "ID": "3723CE80-3A5C-45AE-B3D8-7D368AED8399",
+        "title": "Book 3",
+        "author": "Author 3"
+    },
+    {
+        "ID": "29770574-3765-40E2-BBD8-1AF120E7D4A5",
+        "title": "Book 4",
+        "author": "Author 4"
+    }
+]
