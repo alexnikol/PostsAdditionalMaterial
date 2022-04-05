@@ -16,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         let vc = BooksListTableController()
-        vc.service = BooksService(networkProvider: NetworkProvider())
+        let remoteService = RemoteBooksService(networkProvider: NetworkProvider())
+        let localService = RealmBooksService()
+        let compositeLocalServiceWithRemoteFallback = CompositeLocalServiceWithRemoteFallback(
+            localService: localService,
+            remoteService: remoteService
+        )
+        vc.service = compositeLocalServiceWithRemoteFallback
         window.rootViewController = vc
         window.makeKeyAndVisible()
         return true

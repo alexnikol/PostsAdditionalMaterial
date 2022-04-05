@@ -16,6 +16,10 @@
 		8DE52BEB27FB746D00EAF31D /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DE52BEA27FB746D00EAF31D /* books.json */; };
 		8DE52BED27FC141200EAF31D /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BEC27FC141200EAF31D /* NetworkProvider.swift */; };
 		8DE52BEF27FC144100EAF31D /* NSError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BEE27FC144100EAF31D /* NSError+Extensions.swift */; };
+		8DE52BF227FC1FB900EAF31D /* RemoteBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BF127FC1FB900EAF31D /* RemoteBooksService.swift */; };
+		8DE52BF427FC1FDD00EAF31D /* InMemoryBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BF327FC1FDD00EAF31D /* InMemoryBooksService.swift */; };
+		8DE52BF627FC206400EAF31D /* RealmBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BF527FC206400EAF31D /* RealmBooksService.swift */; };
+		8DE52BF827FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BF727FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		8DE52BEA27FB746D00EAF31D /* books.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = books.json; sourceTree = "<group>"; };
 		8DE52BEC27FC141200EAF31D /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		8DE52BEE27FC144100EAF31D /* NSError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extensions.swift"; sourceTree = "<group>"; };
+		8DE52BF127FC1FB900EAF31D /* RemoteBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksService.swift; sourceTree = "<group>"; };
+		8DE52BF327FC1FDD00EAF31D /* InMemoryBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryBooksService.swift; sourceTree = "<group>"; };
+		8DE52BF527FC206400EAF31D /* RealmBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBooksService.swift; sourceTree = "<group>"; };
+		8DE52BF727FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLocalServiceWithRemoteFallback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,16 +91,28 @@
 		8DBADFE127D8D53B001367B7 /* PostsAdditionalMaterial */ = {
 			isa = PBXGroup;
 			children = (
+				8DE52BF027FC1FAB00EAF31D /* Services */,
 				8DE52BEA27FB746D00EAF31D /* books.json */,
 				8DBADFE227D8D53B001367B7 /* AppDelegate.swift */,
 				8DBADFE627D8D53B001367B7 /* BooksListTableController.swift */,
 				8DBADFEB27D8D53D001367B7 /* Assets.xcassets */,
 				8DBADFED27D8D53D001367B7 /* LaunchScreen.storyboard */,
-				8DE52A4D27FAD64500EAF31D /* BooksService.swift */,
 				8DE52BEC27FC141200EAF31D /* NetworkProvider.swift */,
 				8DE52BEE27FC144100EAF31D /* NSError+Extensions.swift */,
 			);
 			path = PostsAdditionalMaterial;
+			sourceTree = "<group>";
+		};
+		8DE52BF027FC1FAB00EAF31D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8DE52A4D27FAD64500EAF31D /* BooksService.swift */,
+				8DE52BF127FC1FB900EAF31D /* RemoteBooksService.swift */,
+				8DE52BF327FC1FDD00EAF31D /* InMemoryBooksService.swift */,
+				8DE52BF527FC206400EAF31D /* RealmBooksService.swift */,
+				8DE52BF727FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +232,12 @@
 			files = (
 				8DE52BEF27FC144100EAF31D /* NSError+Extensions.swift in Sources */,
 				8DBADFE727D8D53B001367B7 /* BooksListTableController.swift in Sources */,
+				8DE52BF627FC206400EAF31D /* RealmBooksService.swift in Sources */,
+				8DE52BF827FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift in Sources */,
 				8DE52BED27FC141200EAF31D /* NetworkProvider.swift in Sources */,
 				8DE52A4E27FAD64500EAF31D /* BooksService.swift in Sources */,
+				8DE52BF427FC1FDD00EAF31D /* InMemoryBooksService.swift in Sources */,
+				8DE52BF227FC1FB900EAF31D /* RemoteBooksService.swift in Sources */,
 				8DBADFE327D8D53B001367B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

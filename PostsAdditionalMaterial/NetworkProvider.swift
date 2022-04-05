@@ -22,7 +22,7 @@ class NetworkProvider {
         case .getBook:
             guard let path = Bundle.main.path(forResource: "books", ofType: "json"),
                   let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe),
-                  let booksList = try? JSONDecoder().decode([Book].self, from: data) else {
+                  let booksList = try? JSONDecoder().decode([RemoteBook].self, from: data) else {
                       completion(.failure(NSError.simpleError("Remote service issue!")))
                       return
             }
