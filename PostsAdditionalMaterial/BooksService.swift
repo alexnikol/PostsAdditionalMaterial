@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
-struct Book: Object, Decodable {
+struct Book: Decodable {
     let ID: UUID
     let title: String
     let author: String

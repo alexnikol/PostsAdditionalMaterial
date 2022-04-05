@@ -25,6 +25,8 @@ class BooksListTableController: UITableViewController {
     @objc
     func loadList() {
         refreshControl?.beginRefreshing()
+        books = []
+        tableView.reloadData()
         service?.loadList(completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
