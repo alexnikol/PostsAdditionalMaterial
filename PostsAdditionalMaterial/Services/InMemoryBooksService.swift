@@ -7,11 +7,19 @@
 
 import Foundation
 
-class InMemoryBooksService: BooksService {
+class InMemoryBooksService: BooksService, BooksCache {
     
     var cachedList: [Book] = []
     
     func loadList(completion: @escaping (Result<[Book], Error>) -> Void) {
-        completion(.success(cachedList))
+        if cachedList.isEmpty {
+            completion(.failure(NSError.simpleError("Cache is empty!")))
+        } else {
+            completion(.success(cachedList))
+        }
+    }
+    
+    func save(books: [Book]) {
+        cachedList = books
     }
 }

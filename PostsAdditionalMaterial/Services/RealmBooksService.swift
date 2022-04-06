@@ -14,12 +14,22 @@ class RealmBook: Object {
     @Persisted var author: String
 }
 
-class RealmBooksService: BooksService {
+protocol BooksCache {
+    func save(books: [Book])
+}
+
+class RealmBooksService: BooksService, BooksCache {
     
     private let realm = try! Realm()
     
     func loadList(completion: @escaping (Result<[Book], Error>) -> Void) {
         let cachedBooks = realm.objects(RealmBook.self)
         completion(.success(cachedBooks.map { Book(ID: $0.ID, title: $0.title, author: $0.author) }))
+    }
+    
+    func save(books: [Book]) {
+        try! self.realm.write {
+            self.realm.add(books.map { RealmBook(book: $0) })
+        }
     }
 }
