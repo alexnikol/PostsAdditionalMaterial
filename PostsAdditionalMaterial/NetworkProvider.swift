@@ -27,7 +27,8 @@ class NetworkProvider {
                       return
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                completion(.success(booksList as! T))
+//                completion(.success(booksList as! T))
+                completion(.failure(NSError.simpleError("Remote service issue!")))
             })
         default: ()
         }

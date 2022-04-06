@@ -23,6 +23,7 @@ class RemoteBooksService: BooksService {
     
     func loadList(completion: @escaping (Result<[Book], Error>) -> Void) {
         networkProvider.fetchBooks(request: .getBook, responseType: [RemoteBook].self) { result in
+            print("REMOTE_SERVICE_LOADED \(result)")
             switch result {
             case .success(let remoteBooks):
                 let booksModels = remoteBooks.map { Book(ID: $0.ID, title: $0.title, author: $0.author) }

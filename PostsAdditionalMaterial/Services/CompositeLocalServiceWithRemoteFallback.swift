@@ -1,5 +1,5 @@
 //
-//  CompositeLocalServiceWithRemoteFallback.swift
+//  BooksServiceCompositeWithFallback.swift
 //  PostsAdditionalMaterial
 //
 //  Created by Alexander Nikolaychuk on 05.04.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class CompositeLocalServiceWithRemoteFallback: BooksService {
+class BooksServiceCompositeWithFallback: BooksService {
 
     private let mainService: BooksService
     private let fallbackService: BooksService

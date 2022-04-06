@@ -21,6 +21,7 @@
 		8DE52BF627FC206400EAF31D /* RealmBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BF527FC206400EAF31D /* RealmBooksService.swift */; };
 		8DE52BF827FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52BF727FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift */; };
 		8DE52D9427FCDB3800EAF31D /* BooksCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52D9327FCDB3700EAF31D /* BooksCacheDecorator.swift */; };
+		8DE52D9B27FD774A00EAF31D /* RetryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE52D9A27FD774A00EAF31D /* RetryLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8DE52BF527FC206400EAF31D /* RealmBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBooksService.swift; sourceTree = "<group>"; };
 		8DE52BF727FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLocalServiceWithRemoteFallback.swift; sourceTree = "<group>"; };
 		8DE52D9327FCDB3700EAF31D /* BooksCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCacheDecorator.swift; sourceTree = "<group>"; };
+		8DE52D9A27FD774A00EAF31D /* RetryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				8DE52D9327FCDB3700EAF31D /* BooksCacheDecorator.swift */,
 				8DE52BF727FC215A00EAF31D /* CompositeLocalServiceWithRemoteFallback.swift */,
 				8DE52BF327FC1FDD00EAF31D /* InMemoryBooksService.swift */,
+				8DE52D9A27FD774A00EAF31D /* RetryLogic.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE52D9B27FD774A00EAF31D /* RetryLogic.swift in Sources */,
 				8DE52BEF27FC144100EAF31D /* NSError+Extensions.swift in Sources */,
 				8DBADFE727D8D53B001367B7 /* BooksListTableController.swift in Sources */,
 				8DE52BF627FC206400EAF31D /* RealmBooksService.swift in Sources */,

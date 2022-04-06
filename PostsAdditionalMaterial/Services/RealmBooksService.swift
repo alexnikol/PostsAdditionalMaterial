@@ -23,8 +23,11 @@ class RealmBooksService: BooksService, BooksCache {
     private let realm = try! Realm()
     
     func loadList(completion: @escaping (Result<[Book], Error>) -> Void) {
-        let cachedBooks = realm.objects(RealmBook.self)
-        completion(.success(cachedBooks.map { Book(ID: $0.ID, title: $0.title, author: $0.author) }))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            print("REALM_SERVICE_LOADED")
+            let cachedBooks = self.realm.objects(RealmBook.self)
+            completion(.success(cachedBooks.map { Book(ID: $0.ID, title: $0.title, author: $0.author) }))
+        })
     }
     
     func save(books: [Book]) {

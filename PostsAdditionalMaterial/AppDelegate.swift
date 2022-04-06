@@ -23,19 +23,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func makeBooksService() -> BooksService {
+        // 2 remote retries with local fallback
 //        let localService = RealmBooksService()
+//        let remoteService = RemoteBooksService(networkProvider: NetworkProvider())
 //        return CompositeLocalServiceWithRemoteFallback(
-//            mainService: localService,
-//            fallbackService: BooksCacheDecorator(loadService: RemoteBooksService(networkProvider: NetworkProvider()),
-//                                                 cacheService: localService)
+//            mainService: CompositeLocalServiceWithRemoteFallback(
+//                mainService: remoteService,
+//                fallbackService: remoteService),
+//            fallbackService: localService
 //        )
         
+        // 3 remote retries before local fallback
+//        let localService = RealmBooksService()
+//        let remoteService = RemoteBooksService(networkProvider: NetworkProvider())
+//        return BooksServiceCompositeWithFallback(
+//            mainService: BooksServiceCompositeWithFallback(
+//                mainService: BooksServiceCompositeWithFallback(
+//                    mainService: BooksServiceCompositeWithFallback(
+//                        mainService: remoteService,
+//                        fallbackService: remoteService
+//                    ),
+//                    fallbackService: remoteService
+//                ),
+//                fallbackService: remoteService
+//            ),
+//            fallbackService: localService
+//        )
         
-        let localService = InMemoryBooksService()
-        return CompositeLocalServiceWithRemoteFallback(
-            mainService: localService,
-            fallbackService: BooksCacheDecorator(loadService: RemoteBooksService(networkProvider: NetworkProvider()),
-                                                 cacheService: localService)
+        // 1 remote retries before local fallback
+        let localService = RealmBooksService()
+        let remoteService = RemoteBooksService(networkProvider: NetworkProvider())
+        return BooksServiceCompositeWithFallback(
+            mainService: remoteService.retry(1),
+            fallbackService: localService
         )
     }
 }
